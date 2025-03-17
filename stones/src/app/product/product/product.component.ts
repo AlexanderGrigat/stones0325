@@ -12,11 +12,11 @@ export class ProductComponent {
   @Output() priceChange = new EventEmitter<number>();
 
   showPrice(): void {
-    alert(this.product.price)
+    alert(this.product.price);
   }
 
   increasePrice(): void {
-    this.product.price += 5
+    this.product.price += 5;
     this.priceChange.emit(this.product.price);
   }
 }
