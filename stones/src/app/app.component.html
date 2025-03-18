@@ -1,6 +1,9 @@
 <mat-toolbar>
     <span> Stones </span>
 </mat-toolbar>
+
+<stn-product-form (saveProduct)="onSaveProduct($event)"></stn-product-form>
+
 <span> Heute ist {{heute | date:"fullDate" | uppercase}} </span>
  @for(prod of products | slice:0:3; track prod.id; let isEven = $even;){
     <mat-card [ngClass]="{'even-style':isEven}">

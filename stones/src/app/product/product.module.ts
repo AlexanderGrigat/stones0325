@@ -6,13 +6,16 @@ import { UtilsModule } from '../utils/utils.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { ProductFormComponent } from './product-form/product-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ProductComponent,
+    ProductFormComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     ProductRoutingModule,
     UtilsModule,
@@ -23,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   exports: [
     ProductComponent,
+    ProductFormComponent,
   ]
 })
 export class ProductModule { }
