@@ -19,7 +19,7 @@ export class ProductFormComponent {
 
   private readonly fb = inject(FormBuilder);
    productForm = this.fb.group({
-    name: ['', [Validators.required, CustomValidators.alphaNum]],
+     name: ['', [Validators.required, CustomValidators.alphaNum]],
      price: [0, [Validators.required, CustomValidators.positiv]],
      weight: [0, [Validators.required]],
    });
