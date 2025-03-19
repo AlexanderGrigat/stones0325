@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { provideRouter, RouterModule } from '@angular/router';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -19,9 +20,11 @@ describe('ProductListComponent', () => {
       imports:[
         ReactiveFormsModule,
         UtilsModule,
+        RouterModule,
         MatFormFieldModule,
         MatInputModule,
       ],
+      providers:[provideRouter([])]
     })
     .compileComponents();
 

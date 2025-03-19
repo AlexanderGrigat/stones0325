@@ -10,12 +10,4 @@ import { Product } from './product/product';
 export class AppComponent {
   heute = new Date();
   title = 'stones';
-
-  onPriceChange(price: number): void{
-    alert('Der Preis hat sich geändert: '+ price);
-  }
-
-  // onSaveProduct(newProduct: Product){
-  //   this.products.unshift(newProduct);
-  // }
 }
