@@ -13,20 +13,22 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductFormComponent {
   @Output() saveProduct = new EventEmitter<Product>();
   id = -1;
+
+  private readonly fb = inject(FormBuilder);
+  private readonly route = inject(ActivatedRoute);
+
   // productForm = new FormGroup({
      // name: new FormControl('', [Validators.required, CustomValidators.alphaNum]),
      // price: new FormControl(0, [Validators.required, CustomValidators.positiv]),
      // weight: new FormControl(0, [Validators.required]),
    // })
 
-   private readonly fb = inject(FormBuilder);
    productForm = this.fb.group({
      name: ['', [Validators.required, CustomValidators.alphaNum]],
      price: [0, [Validators.required, CustomValidators.positiv]],
      weight: [0, [Validators.required]],
    });
 
-  private route = inject(ActivatedRoute);
   constructor(){
       this.route.paramMap.subscribe(paramMap => {
         const idParam = paramMap.get('id');
