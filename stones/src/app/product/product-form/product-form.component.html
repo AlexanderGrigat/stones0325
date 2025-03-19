@@ -1,3 +1,8 @@
+<br>
+<strong>Id des aktuellen Produktes: </strong> {{id}} <br>
+<strong>Name Rückwärts: </strong>  {{nameReversed}} <br>
+<strong>Name Länge: </strong>  {{ nameLength }} 
+
 <form [formGroup]="productForm">
     <mat-form-field>
       <mat-label>Name</mat-label>
@@ -31,4 +36,3 @@
     <br />
     <button [disabled]="productForm.invalid" color="accent" mat-raised-button (click)="save()">Speichern</button>
   </form>
-  <br>{{id}}
