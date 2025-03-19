@@ -8,11 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductFormComponent,
+    ProductListComponent,
   ],
   imports: [
     ReactiveFormsModule,
