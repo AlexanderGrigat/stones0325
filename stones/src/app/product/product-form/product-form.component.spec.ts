@@ -5,6 +5,7 @@ import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('ProductFormComponent', () => {
   let component: ProductFormComponent;
@@ -19,7 +20,10 @@ describe('ProductFormComponent', () => {
         MatFormFieldModule,
         MatInputModule,
       ],
-      providers:[provideRouter([])]
+      providers:[
+        provideRouter([]),
+        provideHttpClient(),
+      ],
     })
     .compileComponents();
 
