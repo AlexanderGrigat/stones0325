@@ -3,6 +3,7 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../product';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../../service/product.service';
 
 @Component({
   selector: 'stn-product-form',
@@ -15,7 +16,7 @@ export class ProductFormComponent {
   id = -1;
 
   private readonly fb = inject(FormBuilder);
-  private readonly route = inject(ActivatedRoute);
+  private readonly productService = inject(ProductService);
 
   // productForm = new FormGroup({
      // name: new FormControl('', [Validators.required, CustomValidators.alphaNum]),
@@ -30,7 +31,7 @@ export class ProductFormComponent {
    });
 
   constructor(){
-      this.route.paramMap.subscribe(paramMap => {
+      inject(ActivatedRoute).paramMap.subscribe(paramMap => {
         const idParam = paramMap.get('id');
         if(idParam){
           this.id = +idParam;
@@ -47,7 +48,7 @@ export class ProductFormComponent {
       formValue.price,
       formValue.weight,
     );
-    this.saveProduct.emit(product);
+    this.productService.addProduct(product);
     this.productForm.reset();
   }
   }

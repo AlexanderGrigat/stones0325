@@ -6,6 +6,7 @@ import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { provideRouter, RouterModule } from '@angular/router';
+import { MockProductService, ProductService } from '../../service/product.service';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -24,7 +25,7 @@ describe('ProductListComponent', () => {
         MatFormFieldModule,
         MatInputModule,
       ],
-      providers:[provideRouter([])]
+      providers:[{provide: ProductService, useClass: MockProductService},provideRouter([])]
     })
     .compileComponents();
 
@@ -35,5 +36,9 @@ describe('ProductListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should correctly read product list', () => {
+    expect(component.products[0].id).toBe(-1);
   });
 });
