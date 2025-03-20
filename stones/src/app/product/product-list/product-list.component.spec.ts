@@ -2,11 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductListComponent } from './product-list.component';
 import { ProductComponent } from '../product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { provideRouter, RouterModule } from '@angular/router';
+import { provideRouter, RouterLink, RouterModule } from '@angular/router';
 import { MockProductService, ProductService } from '../../service/product.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { AsyncPipe, NgClass } from '@angular/common';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -14,16 +16,14 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        ProductListComponent,
-        ProductComponent,
-      ],
       imports:[
-        ReactiveFormsModule,
-        UtilsModule,
-        RouterModule,
-        MatFormFieldModule,
-        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        AsyncPipe,
+        ProductComponent,
+        ProductListComponent,
+        NgClass,
+        RouterLink,
       ],
       providers:[{provide: ProductService, useClass: MockProductService},provideRouter([])]
     })

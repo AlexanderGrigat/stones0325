@@ -1,20 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProductModule } from './product/product.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([]),
         MatToolbarModule,
-        ProductModule,
-      ],
-      declarations: [
+        RouterOutlet,
+        RouterLink,
+        DatePipe,
+        UpperCasePipe,
         AppComponent,
+        RouterModule.forRoot([]),
       ],
     }).compileComponents();
   });

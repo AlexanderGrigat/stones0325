@@ -1,16 +1,24 @@
 import { CustomValidators } from './../../utils/custom-validators';
 import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../product';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../service/product.service';
 import { map } from 'rxjs';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'stn-product-form',
-  standalone: false,
   templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.css'
+  styleUrl: './product-form.component.css',
+  imports:[
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+  ],
 })
 export class ProductFormComponent {
   @Output() saveProduct = new EventEmitter<Product>();

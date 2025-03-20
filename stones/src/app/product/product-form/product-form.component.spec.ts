@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductFormComponent } from './product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UtilsModule } from '../../utils/utils.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
+import { NettoPipe } from '../../utils/netto.pipe';
+import { MatButtonModule } from '@angular/material/button';
 
 describe('ProductFormComponent', () => {
   let component: ProductFormComponent;
@@ -13,12 +14,13 @@ describe('ProductFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFormComponent],
        imports: [
         ReactiveFormsModule,
-        UtilsModule,
-        MatFormFieldModule,
         MatInputModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        NettoPipe,
+        ProductFormComponent,
       ],
       providers:[
         provideRouter([]),
